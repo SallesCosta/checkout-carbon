@@ -1,37 +1,16 @@
 'use client'
 
 import { ComponentPropsWithoutRef } from 'react'
-import {
-  AudioLines,
-  Piano,
-  Waves,
-  MapPin,
-  Mail,
-  Github,
-  Linkedin,
-  Phone,
-} from 'lucide-react'
-import { openToast } from '@/helpers/openToaster/openToaster'
+
 import { Stack } from '@/components/Stack/Stack'
+import { Github, Linkedin, Mail, Phone } from 'lucide-react'
 
 export interface IconProps extends ComponentPropsWithoutRef<'svg'> {
-  icon:
-    | 'AudioLines'
-    | 'Piano'
-    | 'Waves'
-    | 'MapPin'
-    | 'Mail'
-    | 'Github'
-    | 'Linkedin'
-    | 'Phone'
+  icon: 'Mail' | 'Github' | 'Linkedin' | 'Phone'
 }
 
 export const CustomIcon = ({ icon, ...props }: IconProps) => {
   const Comp = {
-    AudioLines,
-    Piano,
-    Waves,
-    MapPin,
     Mail,
     Github,
     Linkedin,
@@ -44,9 +23,10 @@ export const CustomIcon = ({ icon, ...props }: IconProps) => {
 export const ClientWrapper = () => {
   return (
     <Stack className="gap-2">
-      <CustomIcon icon="Waves" strokeWidth={1.75} onClick={openToast} />
-      <CustomIcon icon="Piano" strokeWidth={1.75} onClick={openToast} />
-      <CustomIcon icon="AudioLines" strokeWidth={1.75} onClick={openToast} />
+      <CustomIcon icon="Mail" strokeWidth={1.75} />
+      <CustomIcon icon="Github" strokeWidth={1.75} />
+      <CustomIcon icon="Linkedin" strokeWidth={1.75} />
+      <CustomIcon icon="Phone" strokeWidth={1.75} />
     </Stack>
   )
 }

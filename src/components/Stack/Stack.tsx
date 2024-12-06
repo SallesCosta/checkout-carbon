@@ -1,22 +1,29 @@
-import { HTMLAttributes, ReactNode, RefObject } from 'react'
+import { ElementType, HTMLAttributes, ReactNode, RefObject } from 'react'
 import { cn } from '@/lib/utils'
 
 interface StackProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
   dir?: 'row' | 'col'
   ref?: RefObject<HTMLDivElement>
+  as?: ElementType
 }
 
-export const Stack = ({ children, dir = 'row', ref, ...props }: StackProps) => {
+export const Stack = ({
+  children,
+  dir = 'row',
+  ref,
+  as: Component = 'div',
+  ...props
+}: StackProps) => {
   return (
-    <div
+    <Component
       data-dir={dir}
       className={cn('flex data-[dir=col]:flex-col', props.className)}
       ref={ref}
       {...props}
     >
       {children}
-    </div>
+    </Component>
   )
 }
 

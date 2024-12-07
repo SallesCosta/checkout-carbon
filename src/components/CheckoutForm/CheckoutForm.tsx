@@ -3,6 +3,7 @@ import React from 'react'
 import { CustomImage } from '@/components/CustomImage/CustomImage'
 import LogoHeader from '@/assets/logo-header.png'
 import { Input } from '@/components/ui/input'
+import { CustomSelect } from '@/components/ui/select'
 
 export const CheckoutForm = () => {
   const newDate = new Date()
@@ -64,15 +65,7 @@ export const CheckoutForm = () => {
           <Input label="CVC/CVV" placeholder="" maxLength={3} />
         </div>
         <div className="col-span-2 flex flex-col">
-          <label htmlFor="phone" className="mb-1 font-medium">
-            Opções de Parcelamento
-          </label>
-          <input
-            type="number"
-            id="phone"
-            name="phone"
-            className="rounded border border-gray-300 p-2 focus:outline-none focus:ring focus:ring-blue-300"
-          />
+          <CustomSelect />
         </div>
         <div className="col-span-2 flex justify-center md:col-span-2">
           <button

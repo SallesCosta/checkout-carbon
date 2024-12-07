@@ -1,23 +1,46 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
-import * as React from 'react'
-
+'use client'
 import { cn } from '@/lib/utils'
+import { masks } from '@/helpers/Mask'
+import { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
+import { Stack } from '@/components/Stack/Stack'
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string
+  placeholder?: string
+  mask?: 'phone' | 'cpf' | 'email' | 'creditCard' | 'day'
+}
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type = 'text', label, placeholder, mask, ...props }, ref) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      const { value } = event.target
+      if (mask && masks[mask]) {
+        event.target.value = masks[mask](value)
+      }
+    }
+
     return (
-      <input
-        type={type}
-        className={cn(
-          'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
-          className,
+      <Stack dir="col">
+        {label && (
+          <label htmlFor={label} className="font-bold text-primary">
+            {label}
+          </label>
         )}
-        ref={ref}
-        {...props}
-      />
+        <input
+          name={label}
+          type={type}
+          placeholder={placeholder}
+          className={cn(
+            'border-input h-8 rounded-full pl-3' +
+              ' bg-[#f4f4f4] focus:border-primary focus:outline-none' +
+              ' focus:ring-2 focus:ring-primary',
+            className,
+          )}
+          ref={ref}
+          onChange={handleChange}
+          {...props}
+        />
+      </Stack>
     )
   },
 )

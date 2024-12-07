@@ -21,3 +21,21 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
   vertical-align: baseline;
 }
+
+.dateDiviser {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 122px;
+  gap: 1rem;
+}
+
+.dateDiviser::before {
+  content: '/';
+  position: absolute;
+  color: #00A19DF2;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.8rem;
+  z-index: 1;
+}

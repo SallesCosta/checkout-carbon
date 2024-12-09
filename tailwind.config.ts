@@ -18,7 +18,13 @@ const config: Config = {
       },
       boxShadow: {
         'default': '0px 4px 4px 0px #00000026',
-      }
+      },
+      screens: {
+        'sm': '576px',
+        'md': '768px',
+        'lg': '992px',
+        'xl': '1200px',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

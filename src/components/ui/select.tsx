@@ -153,22 +153,32 @@ const options = [
   '12x R$ 25',
 ]
 
-export function CustomSelect() {
+export const CustomSelect = React.forwardRef<
+  HTMLDivElement,
+  {
+    value: string
+    onChange: (value: string) => void
+  }
+>(({ value, onChange }, ref) => {
   return (
-    <Select>
-      <label className="font-bold text-primary">Opções de Parcelamento</label>
-      <SelectTrigger className="placeholder:text-muted-foreground h-8 rounded-full bg-[#f4f4f4] pl-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary data-[state=open]:ring-2 data-[state=open]:ring-primary">
-        <SelectValue placeholder="Selecionar" />
-      </SelectTrigger>
-      <SelectContent className="rounded-b-3xl border-b-2 border-l-2 border-r-2 border-primary bg-[#f4f4f4] focus:outline-none">
-        <SelectGroup>
-          {options.map((i, index) => (
-            <SelectItem key={index} value={i}>
-              {i}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <div ref={ref}>
+      <Select value={value} onValueChange={onChange}>
+        <label className="font-bold text-primary">Opções de Parcelamento</label>
+        <SelectTrigger className="placeholder:text-muted-foreground h-8 rounded-full bg-[#f4f4f4] pl-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary data-[state=open]:ring-2 data-[state=open]:ring-primary">
+          <SelectValue placeholder="Selecionar" />
+        </SelectTrigger>
+        <SelectContent className="rounded-b-3xl border-b-2 border-l-2 border-r-2 border-primary bg-[#f4f4f4] focus:outline-none">
+          <SelectGroup>
+            {options.map((i, index) => (
+              <SelectItem key={index} value={i}>
+                {i}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
   )
-}
+})
+
+CustomSelect.displayName = 'CustomSelect'

@@ -1,4 +1,3 @@
-'use client'
 import { cn } from '@/lib/utils'
 import { masks } from '@/helpers/Mask'
 import { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
@@ -7,25 +6,26 @@ import { Stack } from '@/components/Stack/Stack'
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   placeholder?: string
-  mask?: 'phone' | 'cpf' | 'email' | 'creditCard' | 'day'
+  mask?: 'phone' | 'cpf' | 'creditCard'
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type = 'text', label, placeholder, mask, ...props }, ref) => {
+  (
+    { className, type = 'text', label, placeholder, mask, onChange, ...props },
+    ref,
+  ) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target
       if (mask && masks[mask]) {
-        event.target.value = masks[mask](value)
+        event.target.value = masks[mask](value) // Aplica a máscara ao valor
+      }
+      if (onChange) {
+        onChange(event) // Executa o `onChange` passado pelo `react-hook-form`
       }
     }
 
     return (
       <Stack dir="col">
-        {label && (
-          <label htmlFor={label} className="font-bold text-primary">
-            {label}
-          </label>
-        )}
         <input
           name={label}
           type={type}

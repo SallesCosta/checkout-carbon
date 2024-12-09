@@ -5,19 +5,22 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 
-const buttonVariants = cva('w-72 sm:w-52 h-10 font-bold rounded-md', {
-  variants: {
-    variant: {
-      default:
-        'bg-primary text-primary-foreground shadow hover:bg-primary/90 text-white ',
+const buttonVariants = cva(
+  'w-72 sm:w-52 h-10 font-bold rounded-md disabled:opacity-50 disabled:cursor-not-allowed',
+  {
+    variants: {
+      variant: {
+        default:
+          'bg-primary text-primary-foreground shadow hover:bg-primary/90 text-white disabled:hover:bg-primary',
 
-      outline: 'transparent text-gray200 border-2',
+        outline: 'transparent text-gray200 border-2',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
     },
   },
-  defaultVariants: {
-    variant: 'default',
-  },
-})
+)
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,

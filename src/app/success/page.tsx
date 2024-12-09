@@ -1,10 +1,6 @@
+import { CheckoutForm } from '@/components/CheckoutForm/CheckoutForm'
 import { Stack } from '@/components/Stack/Stack'
-import {
-  CheckoutForm,
-  // ProfileForm,
-} from '@/components/CheckoutForm/CheckoutForm'
 import { Summary } from '@/components/Summary/Summary'
-import { Loader } from '@/components/Loader/Loader'
 
 export default async function Home() {
   return (
@@ -14,7 +10,6 @@ export default async function Home() {
     >
       <CheckoutForm />
       <Summary />
-      <Loader isLoading={false} />
     </Stack>
   )
 }

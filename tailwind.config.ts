@@ -16,6 +16,9 @@ const config: Config = {
         gray200: '#B0B0B0',
         ring: 'hsl(var(--ring))',
       },
+      boxShadow: {
+        'default': '0px 4px 4px 0px #00000026',
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],

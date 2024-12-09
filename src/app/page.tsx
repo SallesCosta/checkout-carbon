@@ -9,11 +9,10 @@ export default async function Home() {
   return (
     <Stack
       as="main"
-      className="relative min-h-[1000px] min-h-screen overflow-y-auto bg-white"
+      className="relative min-h-[100dvh] overflow-y-auto bg-white md:flex md:flex-row md:justify-between"
     >
       <CheckoutForm />
       <Summary />
-
       <Loader isLoading={false} />
     </Stack>
   )

@@ -12,7 +12,7 @@ export const CheckoutForm = () => {
 
   return (
     <div className="mx-auto max-w-[572px]">
-      <div className="flex h-[157px] items-center justify-center">
+      <div className="flex items-center justify-center py-12">
         <CustomImage
           src={LogoHeader}
           alt="logo header"
@@ -51,12 +51,12 @@ export const CheckoutForm = () => {
               maxLength={2}
               max={31}
               placeholder="10"
-              className="max-w-[53px] p-0 sm:max-w-[85px]"
+              className="max-w-[53px] p-0 text-center placeholder:text-center sm:max-w-[85px]"
               mask="day"
             />
             <Input
               placeholder="29"
-              className="max-w-[53px] p-0 sm:max-w-[85px]"
+              className="max-w-[53px] p-0 text-center placeholder:text-center sm:max-w-[85px]"
               maxLength={2}
               min={year}
             />

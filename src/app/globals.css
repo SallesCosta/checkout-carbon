@@ -12,6 +12,7 @@ p, span, b, a {
   padding: 0;
   box-sizing: border-box;
   vertical-align: baseline;
+  font-weight: 500;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,10 +31,10 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1rem;
   text-align: center;
 }
-
+/*
 .dateDiviser input::placeholder {
   text-align: center;
-}
+} */
 
 @media (min-width: 640px) {
   .dateDiviser {

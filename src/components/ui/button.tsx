@@ -9,7 +9,7 @@ const buttonVariants = cva('w-72 sm:w-52 h-10 font-bold rounded-md', {
   variants: {
     variant: {
       default:
-        'bg-primary  text-primary-foreground shadow hover:bg-primary/90 text-white ',
+        'bg-primary text-primary-foreground shadow hover:bg-primary/90 text-white ',
 
       outline: 'transparent text-gray200 border-2',
     },

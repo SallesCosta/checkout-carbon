@@ -80,7 +80,7 @@ const SelectContent = React.forwardRef<
       ref={ref}
       className={cn(
         'text-popover-foreground relative z-0 -ml-[2px] -mt-6' +
-          ' bg-gray100 pt-6' +
+          ' bg-gray100 pt-7' +
           ' max-h-96' +
           ' overflow-hidden rounded-b-3xl border-b-2 border-l-2 border-r-2 border-primary shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
         position === 'popper' &&
@@ -95,7 +95,7 @@ const SelectContent = React.forwardRef<
         className={cn(
           'p-1',
           position === 'popper' &&
-            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] font-medium leading-4 text-red-500',
         )}
       >
         {children}
@@ -184,6 +184,7 @@ const options = [
 export function CustomSelect() {
   return (
     <Select>
+      <label className="font-bold text-primary">Opções de Parcelamento</label>
       <SelectTrigger className="placeholder:text-muted-foreground h-8 rounded-full bg-[#f4f4f4] pl-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary data-[state=open]:ring-2 data-[state=open]:ring-primary">
         <SelectValue placeholder="Selecionar" />
       </SelectTrigger>

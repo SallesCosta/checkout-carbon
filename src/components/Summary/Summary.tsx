@@ -38,7 +38,7 @@ const SummarySide = () => {
       <CustomImage src={Card} alt="card image" />
       <div className="w-[440px]">
         <Title className="text-primary" text="Resumo de Compra" />
-        <div className="shadow-default flex h-40 flex-row items-center justify-center gap-3 rounded-t-2xl">
+        <div className="flex h-40 flex-row items-center justify-center gap-3 rounded-t-2xl shadow-default">
           <CustomImage src={LogoFooter} alt="logo" width={82} height={82} />
           <Stack dir="col" className="max-w-[120px]">
             <Text

@@ -37,7 +37,10 @@ const SummarySide = () => {
     <div className="flex w-1/3 max-w-[688] flex-col items-center justify-center gap-12 border-2 border-l-gray100 px-4">
       <CustomImage src={Card} alt="card image" />
       <div className="w-full max-w-[440px]">
-        <Title className="text-primary" text="Resumo de Compra" />
+        <Title
+          className="w-full text-center text-primary"
+          text="Resumo de Compra"
+        />
         <div className="flex h-40 flex-row items-center justify-center gap-3 rounded-2xl shadow-default">
           <CustomImage src={LogoFooter} alt="logo" width={82} height={82} />
           <Stack dir="col" className="max-w-[120px]">

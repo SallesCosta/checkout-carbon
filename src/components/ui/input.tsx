@@ -17,10 +17,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target
       if (mask && masks[mask]) {
-        event.target.value = masks[mask](value) // Aplica a máscara ao valor
+        event.target.value = masks[mask](value)
       }
       if (onChange) {
-        onChange(event) // Executa o `onChange` passado pelo `react-hook-form`
+        onChange(event)
       }
     }
 

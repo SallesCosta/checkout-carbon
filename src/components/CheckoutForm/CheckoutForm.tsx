@@ -74,7 +74,7 @@ const formSchema = z.object({
   ]),
 })
 
-export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
+export const CheckoutForm = forwardRef<HTMLDivElement>((_, ref) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -95,8 +95,8 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
   }
 
   return (
-    <div ref={ref} className="mx-auto max-w-[572px] px-8">
-      <div className="flex justify-start pb-6 pt-40">
+    <div ref={ref} className="mx-auto h-[1000px] px-8 md:w-[572px] md:px-0">
+      <div className="flex justify-start pb-6 pt-12 lg:pt-40">
         <CustomImage
           src={LogoHeader}
           alt="logo header"
@@ -139,6 +139,7 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
                     <Input
                       placeholder="(xx) xxxxx-xxxx"
                       mask="phone"
+                      className="md:w-[302px]"
                       {...field}
                     />
                   </FormControl>
@@ -148,7 +149,7 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
             />
           </div>
 
-          <div className="col-span-1 flex flex-col">
+          <div className="col-span-1 flex flex-col md:items-end">
             <FormField
               control={form.control}
               name="cpf"
@@ -156,7 +157,12 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
                 <FormItem>
                   <FormLabel className="font-bold text-primary">CPF</FormLabel>
                   <FormControl>
-                    <Input placeholder="" mask="cpf" {...field} />
+                    <Input
+                      placeholder=""
+                      mask="cpf"
+                      className="md:w-[230px]"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -174,7 +180,7 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
                     E-mail
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="" mask="email" {...field} />
+                    <Input placeholder="" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -216,7 +222,7 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
                     <FormControl>
                       <Input
                         maxLength={2}
-                        placeholder="10"
+                        placeholder="MM"
                         className="max-w-[53px] p-0 text-center placeholder:text-center sm:max-w-[85px]"
                         // mask="day"
                         {...field}
@@ -233,7 +239,7 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
                   <FormItem>
                     <FormControl>
                       <Input
-                        placeholder="29"
+                        placeholder="AA"
                         className="max-w-[53px] p-0 text-center placeholder:text-center sm:max-w-[85px]"
                         maxLength={2}
                         {...field}
@@ -246,7 +252,7 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
             </div>
           </div>
 
-          <div className="col-span-1 flex flex-col">
+          <div className="col-span-1 flex flex-col items-end">
             <FormField
               control={form.control}
               name="cvv"
@@ -256,7 +262,12 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((props, ref) => {
                     CVC/CVV
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="" maxLength={3} {...field} />
+                    <Input
+                      placeholder=""
+                      maxLength={3}
+                      className="md:w-[230px]"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

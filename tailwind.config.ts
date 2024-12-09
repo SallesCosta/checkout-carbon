@@ -10,16 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#00A19DF2',
+        primary: '#00A19D',
         background: '#f3f3f3',
         gray100: '#f8f8f8',
         gray200: '#B0B0B0',
         ring: 'hsl(var(--ring))',
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
       },
     },
   },

@@ -21,14 +21,27 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
   vertical-align: baseline;
 }
-
 .dateDiviser {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 122px;
   gap: 1rem;
+  text-align: center;
 }
+
+.dateDiviser input::placeholder {
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .dateDiviser {
+    width: 195px;
+    gap: 25px;
+  }
+}
+
 
 .dateDiviser::before {
   content: '/';

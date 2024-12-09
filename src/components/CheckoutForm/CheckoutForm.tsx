@@ -4,13 +4,14 @@ import { CustomImage } from '@/components/CustomImage/CustomImage'
 import LogoHeader from '@/assets/logo-header.png'
 import { Input } from '@/components/ui/input'
 import { CustomSelect } from '@/components/ui/select'
+import { Button } from '@/components/ui/button'
 
 export const CheckoutForm = () => {
   const newDate = new Date()
   const year = newDate.getFullYear().toString().slice(-2)
 
   return (
-    <div>
+    <div className="mx-auto max-w-[572px]">
       <div className="flex h-[157px] items-center justify-center">
         <CustomImage
           src={LogoHeader}
@@ -28,7 +29,7 @@ export const CheckoutForm = () => {
           <Input label="Telefone" placeholder="" mask="phone" />
         </div>
 
-        <div className="col-span-1 flex flex-col md:col-span-2">
+        <div className="col-span-1 flex flex-col">
           <Input label="CPF" placeholder="" mask="cpf" />
         </div>
 
@@ -43,43 +44,35 @@ export const CheckoutForm = () => {
             mask="creditCard"
           />
         </div>
-        <div className="col-span-1 flex flex-col md:col-span-2">
+        <div className="col-span-1 flex flex-col">
           <label className="font-bold text-primary">Data de validade</label>
           <div className="dateDiviser">
             <Input
               maxLength={2}
               max={31}
               placeholder="10"
-              className="max-w-[53px] border-blue-500"
+              className="max-w-[53px] p-0 sm:max-w-[85px]"
               mask="day"
             />
             <Input
               placeholder="29"
-              className="max-w-[53px] border-blue-500"
+              className="max-w-[53px] p-0 sm:max-w-[85px]"
               maxLength={2}
               min={year}
             />
           </div>
         </div>
-        <div className="col-span-1 flex flex-col md:col-span-2">
+        <div className="col-span-1 flex flex-col">
           <Input label="CVC/CVV" placeholder="" maxLength={3} />
         </div>
         <div className="col-span-2 flex flex-col">
           <CustomSelect />
         </div>
-        <div className="col-span-2 flex justify-center md:col-span-2">
-          <button
-            type="submit"
-            className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
-          >
-            Prosseguir
-          </button>
-          <button
-            type="submit"
-            className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
-          >
+        <div className="col-span-2 mt-8 flex w-full flex-col items-center gap-2 sm:flex-row-reverse sm:gap-8 md:col-span-2">
+          <Button type="submit">Prosseguir</Button>
+          <Button type="submit" variant="outline">
             Voltar
-          </button>
+          </Button>
         </div>
       </form>
     </div>

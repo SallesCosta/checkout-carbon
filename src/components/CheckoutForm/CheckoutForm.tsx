@@ -24,8 +24,8 @@ import { masks } from '@/helpers/Mask'
 
 const monthValidationSchema = z.string().refine((value) => {
   const month = Number(value)
-  return month > 0 && month <= 31
-}, 'Maximo 31')
+  return month > 0 && month <= 12
+}, 'Maximo 12')
 
 const minYear = new Date().getFullYear().toString().slice(-2)
 
@@ -39,16 +39,16 @@ const formSchema = z.object({
   name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
   phone: z.string().refine((value) => /^\(\d{2}\) \d{4,5}-\d{4}$/.test(value), {
     message:
-      'Phone number must be in the format (XX) XXXX-XXXX or (XX) XXXXX-XXXX.',
+      'O número de telefone deve estar no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX.',
   }),
   cpf: z
     .string()
-    .min(11, 'CPF inválido')
+    .min(11, 'Mínimo 11 caractéres')
     .transform((value) => masks.cpf(value)),
   email: z
     .string()
-    .min(1, { message: 'This field has to be filled.' })
-    .email('This is not a valid email.'),
+    .min(1, { message: 'Formato inválido.' })
+    .email('Formato inválido.'),
   cardNumber: z
     .string()
     .min(16, 'Número de cartão inválido')

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { CustomImage } from '@/components/CustomImage/CustomImage'
 import LogoHeader from '@/assets/logo-header.png'
 import { Title } from '@/components/Typography/Typography'
-import { SuccessIcon } from '@/components/CustomIcon/Icon'
+import { EcoIcon, SuccessIcon } from '@/components/CustomIcon/Icon'
 
 export default async function Success() {
   return (
@@ -23,7 +23,7 @@ export default async function Success() {
           />
           {/* <CustomIcon icon={Success} /> */}
         </div>
-        <div className="flex h-[171px] w-[171px] items-center justify-center rounded-full bg-gray100 p-8">
+        <div className="flex h-[171px] w-[171px] items-center justify-center rounded-full bg-gray100 p-8 md:hidden">
           <SuccessIcon />
         </div>
         <Title
@@ -44,9 +44,11 @@ export default async function Success() {
         </p>
         <Button className="mt-14 w-full">Compartilhar</Button>
       </div>
-
-      {/* <CheckoutForm /> */}
-      {/* <Summary /> */}
+      <div className="mx-auto hidden h-[1000px] items-center justify-center px-8 sm:flex">
+        <div className="items-center justify-center rounded-full bg-gray100 p-8 sm:flex md:h-[350px] md:w-[350px] lg:h-[544px] lg:w-[544px]">
+          <EcoIcon />
+        </div>
+      </div>
     </Stack>
   )
 }

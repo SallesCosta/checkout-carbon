@@ -75,6 +75,7 @@ const formSchema = z.object({
 })
 
 export const CheckoutForm = forwardRef<HTMLDivElement>((_, ref) => {
+  // const { data, isError, isFetching } = useCredPrice(3)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

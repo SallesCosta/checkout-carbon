@@ -12,7 +12,14 @@ export const useCustomParams = () => {
 
   const setParams = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams?.toString())
-    params.set(key, value)
+
+    const existingValue = params.get(key)
+
+    if (existingValue === null) {
+      params.append(key, value)
+    } else {
+      params.set(key, value)
+    }
 
     const url = `${pathname}?${params.toString()}`
     router.push(url)

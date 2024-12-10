@@ -13,7 +13,7 @@ export default async function Success() {
   return (
     <Stack
       as="main"
-      className="relative overflow-y-auto bg-white md:flex md:flex-row md:justify-between"
+      className="relative min-h-[100dvh] overflow-y-auto bg-white md:flex md:flex-row md:justify-between"
     >
       <div className="mx-auto flex h-[1000px] flex-col items-center px-8 md:w-[572px] md:px-0">
         <div className="flex w-full items-center justify-center pb-10 pt-12 lg:pt-40">
@@ -29,7 +29,7 @@ export default async function Success() {
           <SuccessIcon />
         </div>
         <Title
-          text="Parabéns!"
+          text="Desculpe"
           className="mt-8 w-full text-center text-4xl text-primary"
         />
         <Title

@@ -6,7 +6,7 @@ import LogoFooter from '@/assets/logo-footer.png'
 import Card from '@/assets/Card.png'
 import { Title, Text } from '@/components/Typography/Typography'
 import { Stack } from '@/components/Stack/Stack'
-import { useResponsive } from '@/helpers/useResponsive/useResponsive'
+import { useResponsive } from '@/hooks/useResponsive/useResponsive'
 
 export const Summary = () => {
   const { isLessThanTablet } = useResponsive()

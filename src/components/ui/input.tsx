@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { masks } from '@/helpers/Mask'
+import { masks } from '@/hooks/useCredPrice/Mask'
 import { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
 import { Stack } from '@/components/Stack/Stack'
 

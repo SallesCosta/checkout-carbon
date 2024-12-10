@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { useRedirect } from '@/helpers/useRedirect/useRedirect'
+import { useRedirect } from '@/hooks/useRedirect/useRedirect'
 
 export const RedirectButton = ({
   path,

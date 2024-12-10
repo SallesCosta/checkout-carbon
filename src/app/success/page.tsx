@@ -4,10 +4,8 @@ import { Stack } from '@/components/Stack/Stack'
 import { Button } from '@/components/ui/button'
 import { CustomImage } from '@/components/CustomImage/CustomImage'
 import LogoHeader from '@/assets/logo-header.png'
-// import Success from '@/assets/success.svg'
 import { Title } from '@/components/Typography/Typography'
 import { SuccessIcon } from '@/components/CustomIcon/Icon'
-// import { CustomIcon } from '@/components/CustomIcon/Icon'
 
 export default async function Success() {
   return (

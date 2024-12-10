@@ -14,6 +14,7 @@ const config: Config = {
         background: '#f3f3f3',
         gray100: '#f8f8f8',
         gray200: '#B0B0B0',
+        destructive: '#FC311D',
         ring: 'hsl(var(--ring))',
       },
       boxShadow: {

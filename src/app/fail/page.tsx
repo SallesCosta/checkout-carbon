@@ -4,10 +4,8 @@ import { Stack } from '@/components/Stack/Stack'
 import { Button } from '@/components/ui/button'
 import { CustomImage } from '@/components/CustomImage/CustomImage'
 import LogoHeader from '@/assets/logo-header.png'
-// import Success from '@/assets/success.svg'
 import { Title } from '@/components/Typography/Typography'
-import { SuccessIcon } from '@/components/CustomIcon/Icon'
-// import { CustomIcon } from '@/components/CustomIcon/Icon'
+import { FailIcon } from '@/components/CustomIcon/Icon'
 
 export default async function Success() {
   return (
@@ -26,25 +24,24 @@ export default async function Success() {
           {/* <CustomIcon icon={Success} /> */}
         </div>
         <div className="flex h-[171px] w-[171px] items-center justify-center rounded-full bg-gray100 p-8">
-          <SuccessIcon />
+          <FailIcon />
         </div>
         <Title
           text="Desculpe"
-          className="mt-8 w-full text-center text-4xl text-primary"
+          className="mt-8 w-full text-center text-4xl text-destructive"
         />
         <Title
-          text="Você compensou suas emissões com sucesso!"
+          text="Ocorreu um erro inesperado"
           as="h2"
-          className="mt-2 w-full text-center text-xl text-primary"
+          className="mt-2 w-full text-center text-xl text-destructive"
         />
-        <p className="mt-6 text-sm">
-          Com essa ação você contribui para um mundo mais sustentável
-        </p>
-        <p className="mt-3 text-sm">
-          Um email com o certificado de compensação será enviado para você em
-          breve
-        </p>
-        <Button className="mt-14 w-full">Compartilhar</Button>
+        <div className="mt-10 px-6">
+          <p className="text-sm">Verifique as informações do seu cartão</p>
+          <p className="mt-3 text-sm">
+            Se o problema persiste, contate-se com o seu banco
+          </p>
+        </div>
+        <Button className="mt-20 w-full">Tentar novamente</Button>
       </div>
 
       {/* <CheckoutForm /> */}

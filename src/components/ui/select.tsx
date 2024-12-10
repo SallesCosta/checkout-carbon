@@ -19,7 +19,13 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'border-input relative z-10 flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 [&>span]:text-[#979797]',
+      'border-input relative z-10 flex h-9 w-full items-center' +
+        ' justify-between whitespace-nowrap rounded-md border bg-transparent' +
+        ' px-3 py-2 text-sm shadow-sm ring-offset-background' +
+        ' focus:outline-none focus:ring-1 focus:ring-ring' +
+        ' disabled:cursor-not-allowed disabled:opacity-50' +
+        ' cursor-pointer [&>span]:line-clamp-1 [&>span]:text-black' +
+        ' [&>span]:pointer',
       className,
     )}
     {...props}
@@ -78,7 +84,6 @@ const SelectContent = React.forwardRef<
       >
         {children}
       </SelectPrimitive.Viewport>
-      {/* <SelectScrollDownButton /> */}
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 ))
@@ -103,13 +108,18 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'focus:bg-accent text-bold focus:text-accent-foreground relative flex w-full' +
+      'focus:bg-accent text-bold focus:text-accent-foreground cursor-pointer' +
+        ' relative flex w-full' +
         ' cursor-default select-none items-center rounded-sm py-0.5 pl-2 pr-8 font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'hover:bg-secondary duration-400 transition-all hover:translate-x-1' +
+        ' hover:text-primary',
       className,
     )}
     {...props}
   >
-    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+    <SelectPrimitive.ItemText className="text-black">
+      {children}
+    </SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
 ))
 SelectItem.displayName = SelectPrimitive.Item.displayName

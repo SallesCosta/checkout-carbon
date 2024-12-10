@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 
 import { masks } from '@/hooks/useCredPrice/Mask'
 import { z } from 'zod'
+import { useCustomParams } from '@/hooks/useCustomParams/useCustomParams'
 
 const monthValidationSchema = z.string().refine((value) => {
   const month = Number(value)
@@ -25,8 +26,10 @@ export const formSchema = z.object({
   }),
   cpf: z
     .string()
-    .min(11, 'Mínimo 11 caractéres')
-    .transform((value) => masks.cpf(value)),
+    .min(11, 'Mínimo 11 caracteres')
+    .refine((value) => /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(masks.cpf(value)), {
+      message: 'CPF inválido',
+    }),
   email: z
     .string()
     .min(1, { message: 'Formato inválido.' })
@@ -34,10 +37,11 @@ export const formSchema = z.object({
   cardNumber: z
     .string()
     .min(16, 'Número de cartão inválido')
-    .transform((value) => masks.creditCard(value)),
+    .refine((value) => /^[\d\s]+$/.test(masks.creditCard(value)), {
+      message: 'Número de cartão inválido',
+    }),
   monthValidate: monthValidationSchema,
   yearValidate: yearValidationSchema(Number(minYear)),
-
   cvv: z.string().min(3, 'CVV inválido'),
   shares: z.enum([
     '1x R$ 300',
@@ -57,6 +61,11 @@ export const formSchema = z.object({
 })
 
 export const useFormValidation = () => {
+  const { getParams } = useCustomParams()
+
+  const co2 = getParams('co2')
+  const cred = getParams('cred')
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -72,8 +81,27 @@ export const useFormValidation = () => {
     },
   })
 
+  const removeMasks = (value: string) => value.replace(/[^\d]/g, '')
+
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values)
+    const fullYear = `20${values.yearValidate}`
+    const data = {
+      co2,
+      cred,
+      card_number: removeMasks(values.cardNumber),
+      expiration_month: values.monthValidate,
+      expiration_year: fullYear,
+      security_code: values.cvv,
+      cardholder: {
+        name: values.name,
+        identification: {
+          type: 'CPF',
+          number: removeMasks(values.cpf),
+        },
+      },
+    }
+    console.log(data)
   }
+
   return { onSubmit, form }
 }

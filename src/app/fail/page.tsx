@@ -7,7 +7,7 @@ import LogoHeader from '@/assets/logo-header.png'
 import { Title } from '@/components/Typography/Typography'
 import { FailIcon } from '@/components/CustomIcon/Icon'
 
-export default async function Success() {
+export default async function Fail() {
   return (
     <Stack
       as="main"

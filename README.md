@@ -1,5 +1,7 @@
 # Checkout Carbon - Eduardo Salles 👋
 
+## [Deployed Version](https://checkout-carbon.netlify.app)
+
 ## 🧐 Features
 
 - Checkout Page
@@ -29,4 +31,7 @@ yarn install
 ```
 
 ## Usage
+
+
+https://github.com/user-attachments/assets/2302dde1-6ae8-4ea8-beed-cdfc4e604279
 

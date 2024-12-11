@@ -1,10 +1,17 @@
 'use client'
 
-import { Dialog, DialogContent } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@/components/ui/dialog'
 
 export function Loader({ isLoading }: { isLoading: boolean }) {
   return (
     <Dialog open={isLoading}>
+      <DialogTitle />
+      <DialogDescription />
       <DialogContent className="flex items-center justify-center bg-transparent shadow-none">
         <svg
           width="100"

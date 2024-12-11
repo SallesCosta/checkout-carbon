@@ -5,7 +5,7 @@ import { getCredPrice } from '@/services/services'
 export const createStaleTimeInMinutes = (minutes: number) => 1000 * 60 * minutes
 
 export const useCredPrice = (id: number) => {
-  const { data, isError, isFetching, isSuccess } = useQuery({
+  const { data, isError, isFetching } = useQuery({
     queryKey: ['credPrice'],
     queryFn: () => getCredPrice(id),
     refetchOnWindowFocus: false,
@@ -13,8 +13,5 @@ export const useCredPrice = (id: number) => {
     select: (data) => data?.amout,
   })
 
-  if (isSuccess) {
-    console.log('data...', data)
-  }
   return { data, isError, isFetching }
 }

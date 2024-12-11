@@ -16,9 +16,10 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { useFormValidation } from '@/hooks/useFormValidation/useFormValidation'
+import { Loader } from '@/components/Loader/Loader'
 
 export const CheckoutForm = forwardRef<HTMLDivElement>((_, ref) => {
-  const { form, onSubmit, isSubmitDisabled } = useFormValidation()
+  const { form, onSubmit, isSubmitDisabled, isSending } = useFormValidation()
   return (
     <div ref={ref} className="mx-auto h-[1000px] px-8 md:w-[572px] md:px-0">
       <div className="flex justify-start pb-6 pt-12 lg:pt-40">
@@ -149,7 +150,6 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((_, ref) => {
                         maxLength={2}
                         placeholder="MM"
                         className="max-w-[53px] p-0 text-center placeholder:text-center sm:max-w-[85px]"
-                        // mask="day"
                         {...field}
                       />
                     </FormControl>
@@ -229,6 +229,7 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
         </form>
       </Form>
+      <Loader isLoading={isSending} />
     </div>
   )
 })

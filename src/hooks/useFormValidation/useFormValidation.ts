@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form'
 import { masks } from '@/hooks/useCredPrice/Mask'
 import { z } from 'zod'
 import { useCustomParams } from '@/hooks/useCustomParams/useCustomParams'
+import { useProcessPayment } from '@/hooks/useProcessPayment/useProcessPayment'
+import { PostData } from '@/services/services'
 
 const monthValidationSchema = z.string().refine((value) => {
   const month = Number(value)
@@ -63,6 +65,11 @@ export const formSchema = z.object({
 export const useFormValidation = () => {
   const { getParams } = useCustomParams()
 
+  const { mutation, isSending } = useProcessPayment()
+  const handleSubmitPayment = (data: PostData) => {
+    mutation.mutate(data)
+  }
+
   const co2 = getParams('co2')
   const cred = getParams('cred')
 
@@ -101,10 +108,10 @@ export const useFormValidation = () => {
         },
       },
     }
-    console.log(data)
+    handleSubmitPayment(data)
   }
 
   const isSubmitDisabled = !form.formState.isValid
 
-  return { onSubmit, form, isSubmitDisabled }
+  return { onSubmit, form, isSubmitDisabled, isSending }
 }

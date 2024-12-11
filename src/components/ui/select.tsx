@@ -4,7 +4,7 @@ import * as React from 'react'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import { cn } from '@/lib/utils'
 import { ChevronUpIcon } from '@radix-ui/react-icons'
-import { ChevronDown } from '@/components/CustomIcon/Icon'
+import { ChevronDown } from '@/components/Icons/Icons'
 
 const Select = SelectPrimitive.Root
 

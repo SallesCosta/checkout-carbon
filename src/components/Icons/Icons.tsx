@@ -1,36 +1,5 @@
 'use client'
 
-import { ComponentPropsWithoutRef } from 'react'
-
-import { Stack } from '@/components/Stack/Stack'
-import { Github, Linkedin, Mail, Phone } from 'lucide-react'
-
-export interface IconProps extends ComponentPropsWithoutRef<'svg'> {
-  icon: 'Mail' | 'Github' | 'Linkedin' | 'Phone'
-}
-
-export const CustomIcon = ({ icon, ...props }: IconProps) => {
-  const Comp = {
-    Mail,
-    Github,
-    Linkedin,
-    Phone,
-  }[icon]
-
-  return <Comp {...props} />
-}
-
-export const ClientWrapper = () => {
-  return (
-    <Stack className="gap-2">
-      <CustomIcon icon="Mail" strokeWidth={1.75} />
-      <CustomIcon icon="Github" strokeWidth={1.75} />
-      <CustomIcon icon="Linkedin" strokeWidth={1.75} />
-      <CustomIcon icon="Phone" strokeWidth={1.75} />
-    </Stack>
-  )
-}
-
 export const ChevronDown = () => {
   return (
     <svg
@@ -174,6 +143,37 @@ export const EcoIcon = () => {
         d="M298.648 367.91C300.945 367.91 303.241 366.943 304.864 365.081C307.844 361.641 307.48 356.445 304.048 353.456C299.73 349.714 297.256 344.527 297.052 338.843C296.875 333.966 298.418 329.346 301.406 325.604L301.433 325.569C302.452 325.915 303.41 326.402 304.492 326.571C310.362 327.493 316.365 327.954 322.324 327.954C352.96 327.954 381.761 316.028 403.414 294.365C429.236 268.535 441.277 231.55 435.62 195.434C434.352 187.364 427.835 180.838 419.748 179.57C413.86 178.648 407.857 178.187 401.907 178.187C371.288 178.187 342.497 190.104 320.825 211.767C295.004 237.597 282.962 274.582 288.619 310.699C288.814 311.922 289.338 313.013 289.754 314.148C283.68 321.118 280.284 330.136 280.603 339.42C280.958 349.555 285.578 359.211 293.257 365.879C294.818 367.236 296.742 367.901 298.657 367.901L298.648 367.91ZM332.459 223.427C351.009 204.886 375.678 194.671 401.898 194.671C407.006 194.671 412.158 195.07 417.194 195.859C418.24 196.019 419.189 196.959 419.349 198.005C424.199 228.943 413.887 260.625 391.772 282.74C371.847 302.665 344.261 312.871 316.427 311.222C319.052 308.508 380.431 246.411 380.431 246.411C383.641 243.184 383.632 237.97 380.422 234.76C377.203 231.559 371.989 231.559 368.788 234.769C368.788 234.769 306.877 297.469 304.137 300.271C302.027 271.905 312.224 243.662 332.468 223.419L332.459 223.427Z"
         fill="#00A19D"
       />
+    </svg>
+  )
+}
+
+export const Spinner = () => {
+  return (
+    <svg
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="animate-spin"
+    >
+      <path
+        d="M13 50.5C13 29.7893 29.7893 13 50.5 13C71.2107 13 88 29.7893 88 50.5C88 71.2107 71.2107 88 50.5 88C29.7893 88 13 71.2107 13 50.5ZM79.0744 50.5C79.0744 34.7188 66.2812 21.9256 50.5 21.9256C34.7188 21.9256 21.9256 34.7188 21.9256 50.5C21.9256 66.2812 34.7188 79.0744 50.5 79.0744C66.2812 79.0744 79.0744 66.2812 79.0744 50.5Z"
+        fill="url(#paint0_angular_2_487)"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_angular_2_487"
+          gradientUnits="userSpaceOnUse"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop stopColor="#00A19D" offset="0%" />
+          <stop stopColor="#C4C4C4" stopOpacity="0" offset="100%" />
+        </linearGradient>
+      </defs>
     </svg>
   )
 }

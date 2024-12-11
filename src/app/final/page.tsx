@@ -2,7 +2,7 @@ import { Stack } from '@/components/Stack/Stack'
 import { CustomImage } from '@/components/CustomImage/CustomImage'
 import LogoHeader from '@/assets/logo-header.png'
 import { Title } from '@/components/Typography/Typography'
-import { EcoIcon, FailIcon, SuccessIcon } from '@/components/CustomIcon/Icon'
+import { EcoIcon, FailIcon, SuccessIcon } from '@/components/Icons/Icons'
 import { RedirectButton } from '@/components/RedirectButton/RedirectButton'
 
 export default function SuccessPage({

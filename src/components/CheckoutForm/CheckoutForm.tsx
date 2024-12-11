@@ -18,8 +18,7 @@ import {
 import { useFormValidation } from '@/hooks/useFormValidation/useFormValidation'
 
 export const CheckoutForm = forwardRef<HTMLDivElement>((_, ref) => {
-  // const { data, isError, isFetching } = useCredPrice(3)
-  const { form, onSubmit } = useFormValidation()
+  const { form, onSubmit, isSubmitDisabled } = useFormValidation()
   return (
     <div ref={ref} className="mx-auto h-[1000px] px-8 md:w-[572px] md:px-0">
       <div className="flex justify-start pb-6 pt-12 lg:pt-40">
@@ -217,7 +216,9 @@ export const CheckoutForm = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
 
           <div className="col-span-2 mt-8 flex w-full flex-col items-center gap-2 sm:flex-row-reverse sm:gap-8 md:col-span-2">
-            <Button type="submit">Prosseguir</Button>
+            <Button type="submit" disabled={isSubmitDisabled}>
+              Prosseguir
+            </Button>
             <Button
               type="button"
               variant="outline"

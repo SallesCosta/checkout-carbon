@@ -68,6 +68,7 @@ export const useFormValidation = () => {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    mode: 'onChange', // Importante para isValid funcionar em tempo real
     defaultValues: {
       name: '',
       phone: '',
@@ -103,5 +104,7 @@ export const useFormValidation = () => {
     console.log(data)
   }
 
-  return { onSubmit, form }
+  const isSubmitDisabled = !form.formState.isValid // Variável booleana para habilitar/desabilitar o botão
+
+  return { onSubmit, form, isSubmitDisabled }
 }

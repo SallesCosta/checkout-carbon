@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image, { ImageProps, StaticImageData } from 'next/image'
 
 export interface Props {
@@ -21,24 +21,34 @@ const customLoader = ({ src }: { src: string }) => {
 
 export const CustomImage = (props: Props) => {
   const { width, height } = props
+  const [imageDimensions, setImageDimensions] = useState({
+    width: width ?? 0,
+    height: height ?? 0,
+  })
 
-  const img = new window.Image()
-  if (typeof props.src === 'string') {
-    img.src = props.src
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined' && typeof props.src === 'string') {
+      const img = new window.Image()
+      img.src = props.src
+      img.onload = () => {
+        setImageDimensions({
+          width: width ?? img.width,
+          height: height ?? img.height,
+        })
+      }
+    }
+  }, [props.src, width, height])
 
   return (
-    <div className={`${`max-w-[${width}}] max-h-[${height}}]`}`}>
-      <Image
-        {...props}
-        aria-hidden
-        src={props.src}
-        alt={props.alt}
-        width={width ?? img.width}
-        height={height ?? img.height}
-        loader={customLoader}
-        unoptimized={true}
-      />
-    </div>
+    <Image
+      {...props}
+      aria-hidden
+      src={props.src}
+      alt={props.alt}
+      width={imageDimensions.width}
+      height={imageDimensions.height}
+      loader={customLoader}
+      unoptimized={true}
+    />
   )
 }

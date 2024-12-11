@@ -15,7 +15,7 @@
 - [React Query](https://tanstack.com/query/v3/)
 - [Zod](https://zod.dev/)
 - [ShadCN](https://ui.shadcn.com/)
-## 🛠️ Install Dependencies
+## 🛠️ Run this project
 
 Clone this repo:
 
@@ -29,6 +29,8 @@ Install:
 cd checout-carbom
 yarn install
 ```
+
+check out `http://localhost:3000`
 
 ## Usage
 
